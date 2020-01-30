@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const TodoSchema = new Schema({
   title: {
-    required: true,
+    // required: true,
     type: String
   },
 
@@ -12,14 +12,13 @@ const TodoSchema = new Schema({
     type: Date
   },
   id: {
-    type: String,
-    required: true
+    type: String
+    // required: true
   },
 
-  //   name: {
-  //     type: String,
-  //     required: true
-  //   },
+  completed: {
+    type: Boolean
+  },
 
   dateCreated: {
     // required: true,

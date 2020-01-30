@@ -4,13 +4,13 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
-// app.set('view engine', 'ejs');
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
 mongoose
-  .connect('mongodb://127.0.0.1:27018/admin', { useNewUrlParser: true })
+  .connect('mongodb://127.0.0.1:27021/admin', { useNewUrlParser: true })
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
 
@@ -20,12 +20,13 @@ app.post('/todo/add', (req, res) => {
   //   res.setHeader('Content-Type', 'Accept');
   console.log(req);
   console.log(req.body);
-  const temp = JSON.parse(req.body);
+  // const temp = JSON.parse(req.body);
 
   const newItem = new Todo({
     title: req.body.title,
     id: req.body.id,
-    dateCreated: req.body.dateCreated
+    // dateCreated: req.body.dateCreated,
+    completed: req.body.completed
     // lastUpdated: temp.lastUpdated
   });
 
