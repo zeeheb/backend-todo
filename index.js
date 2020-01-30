@@ -33,6 +33,14 @@ app.post('/todo/add', (req, res) => {
   newItem.save().then(item => res.send('Item salvo com sucesso'));
 });
 
+app.get('/todo', async (req, res) => {
+  // Todo.find({}, (todos) => {
+  //   res.send(todos)
+  // })
+  const todos = await Todo.find({});
+  res.send(todos);
+});
+
 const port = 3001;
 
 app.listen(port, () => console.log('Server running...'));

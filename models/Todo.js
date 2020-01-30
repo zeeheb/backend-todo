@@ -9,7 +9,8 @@ const TodoSchema = new Schema({
 
   lastUpdated: {
     // required: true,
-    type: Date
+    type: Date,
+    default: Date.now
   },
   id: {
     type: String
@@ -22,7 +23,8 @@ const TodoSchema = new Schema({
 
   dateCreated: {
     // required: true,
-    type: Date
+    type: Date,
+    default: Date.now
   }
 });
 
