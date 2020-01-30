@@ -16,7 +16,7 @@ mongoose
 
 const Todo = require('./models/Todo');
 
-app.post('/todo/add', (req, res) => {
+app.post('/todo', (req, res) => {
   //   res.setHeader('Content-Type', 'Accept');
   console.log(req);
   console.log(req.body);
@@ -39,6 +39,14 @@ app.get('/todo', async (req, res) => {
   // })
   const todos = await Todo.find({});
   res.send(todos);
+});
+
+app.delete('/todo', async (req, res) => {
+  const params = req.query;
+
+  // const todo = await Todo.find({id: params})
+  await Todo.findOneAndRemove({ id: params.id });
+  res.send('Apagado com sucesso');
 });
 
 const port = 3001;
